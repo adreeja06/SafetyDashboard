@@ -1,0 +1,59 @@
+@model _1stModule_PIPremises.Models.Permit
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Permit</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="PermitNumber" class="control-label"></label>
+                <input asp-for="PermitNumber" class="form-control" />
+                <span asp-validation-for="PermitNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PermitType" class="control-label"></label>
+                <input asp-for="PermitType" class="form-control" />
+                <span asp-validation-for="PermitType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IssueDateTime" class="control-label"></label>
+                <input asp-for="IssueDateTime" class="form-control" />
+                <span asp-validation-for="IssueDateTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FunctionalLocation" class="control-label"></label>
+                <input asp-for="FunctionalLocation" class="form-control" />
+                <span asp-validation-for="FunctionalLocation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StationName" class="control-label"></label>
+                <input asp-for="StationName" class="form-control" />
+                <span asp-validation-for="StationName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

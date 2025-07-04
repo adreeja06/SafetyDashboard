@@ -1,0 +1,53 @@
+@model IEnumerable<_1stModule_PIPremises.Models.Permit>
+
+@{
+    ViewData["Title"] = "Live Permits";
+    var selectedStation = Context.Request.Query["stationFilter"].ToString();
+}
+
+<h2 class="text-center my-3">Live Permits</h2>
+
+<div class="container mb-4">
+    <form asp-controller="Permits" asp-action="Index" method="get" class="row g-3 align-items-end">
+        <div class="col-md-4">
+            <label for="stationFilter" class="form-label">Filter by Station:</label>
+            <select name="stationFilter" id="stationFilter" class="form-select" onchange="this.form.submit()" asp-items="@(ViewBag.Locations as SelectList)">
+                <option value="">-- All Stations --</option>
+            </select>
+        </div>
+    </form>
+</div>
+
+<table class="table table-bordered table-hover text-center">
+    <thead class="table-dark">
+        <tr>
+            <th>Permit Number</th>
+            <th>Type</th>
+            <th>Issue Date & Time</th>
+            <th>Station Name</th>
+            <th>Functional Location</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var permit in Model)
+        {
+            string rowColor = permit.PermitType switch
+            {
+                "Hot" => "table-danger",     // 🔴 RED
+                "Cold" => "table-primary",   // 🔵 BLUE
+                "Height" => "table-warning", // 🟡 YELLOW
+                _ => ""
+            };
+
+            <tr class="@rowColor">
+                <td>@permit.PermitNumber</td>
+                <td>@permit.PermitType</td>
+                <td>@permit.IssueDateTime.ToString("g")</td>
+                <td>@permit.StationName</td>
+                <td>@permit.FunctionalLocation</td>
+                <td>@permit.Description</td>
+            </tr>
+        }
+    </tbody>
+</table>
