@@ -19,7 +19,7 @@ namespace _1stModule_PIPremises.Controllers
             _context = context;
         }
 
-        // GET: Permits
+        // ✅ FIXED: GET: Permits (Index with dropdown selection retained)
         public async Task<IActionResult> Index(string stationFilter)
         {
             // Get distinct StationNames for dropdown
@@ -29,9 +29,13 @@ namespace _1stModule_PIPremises.Controllers
                 .OrderBy(s => s)
                 .ToListAsync();
 
-            ViewBag.Locations = new SelectList(stationList);
+            // Build the SelectList with selected value
+            ViewBag.Locations = new SelectList(
+                stationList.Select(s => new SelectListItem { Value = s, Text = s }).ToList(),
+                "Value", "Text", stationFilter
+            );
 
-            // Filter by selected station
+            // Filter permits by selected station if provided
             var permits = from p in _context.Permits select p;
 
             if (!string.IsNullOrEmpty(stationFilter))

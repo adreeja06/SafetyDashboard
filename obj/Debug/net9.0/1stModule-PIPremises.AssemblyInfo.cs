@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("1stModule-PIPremises")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3bb707841cf89973110e3e3d8c7898d758bffa51")]
 [assembly: System.Reflection.AssemblyProductAttribute("1stModule-PIPremises")]
 [assembly: System.Reflection.AssemblyTitleAttribute("1stModule-PIPremises")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
