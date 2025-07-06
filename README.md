@@ -103,12 +103,12 @@ dotnet run
 
 ---
 
-## 🙋‍♂️ Maintainer
+## 👩‍💻 Maintained by
 
 **Adreeja Mahato**
 Intern, Indian Oil Corporation Limited
+
 Email: \[adreejamahato@gmail.com]
-GitHub: [adreeja06](https://github.com/adreeja06)
 
 ---
 
